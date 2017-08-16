@@ -2,7 +2,7 @@
 #include <stdbool.h>
 
 int main(void) {
-	short mas[8] = { 8, 1, 5, 9, 0, 7, 4, 6 };
+	short mas[8] = { 0, 6, 8, 3, 2, 7, 4, 9 };
 	short rez[2][2] = { 0 };
 	short size = 10;
 	short ind = 0;
@@ -34,23 +34,25 @@ int main(void) {
 		}
 
 		if (!flag) {
+			if (mas[size - 3] != size - 1) {
+				rez[1][0] = mas[size - 3];
+				rez[1][1] = 10;
+			}
+
+			if (mas[0] != 0) {
+				rez[0][0] = -1;
+				rez[0][1] = mas[0];
+			}
+
 			break;
 		}
 	}
 
-	if (rez[0][1] - rez[0][0] > 2) {
-		for (short i = rez[0][0] + 1; i < rez[0][1]; i++) {
-			printf("%i ", i);
-		}
+	for (short i = rez[0][0] + 1; i < rez[0][1]; i++) {
+		printf("%i ", i);
 	}
-	else if (rez[1][1] - rez[1][0] > 2) {
-		for (short i = rez[1][0] + 1; i < rez[1][1]; i++) {
-			printf("%i ", i);
-		}
-	}
-	else {
-		printf("%i ", rez[0][0] + 1);
-		printf("%i \n", rez[1][0] + 1);
+	for (short i = rez[1][0] + 1; i < rez[1][1]; i++) {
+		printf("%i \n", i);
 	}
 
 	return 0;
