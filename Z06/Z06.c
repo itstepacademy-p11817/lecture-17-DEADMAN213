@@ -2,7 +2,7 @@
 #include <stdbool.h>
 
 int main(void) {
-	int mas[8] = { 8, 2, 5, 9, 0, 7, 4, 6 };
+	int mas[8] = { 9, 3, 8, 2, 5, 7, 4, 6 };
 	int size = 10;
 	int a = -1;
 
@@ -34,7 +34,7 @@ int main(void) {
 		}
 	}
 
-	printf("\n%i %i\n", a, sum - a);
+	printf("\nElements: %i %i\n", a, sum - a);
 
 	return 0;
 }

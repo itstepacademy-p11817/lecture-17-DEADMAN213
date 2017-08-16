@@ -8,6 +8,11 @@ int main(void) {
 	short ind = 0;
 	bool flag = true;
 
+	printf("Massive: ");
+	for (int i = 0; i < size - 2; i++) {
+		printf("%i ", mas[i]);
+	}
+
 	for (short i = 0; i < size - 3; i++) {
 		flag = false;
 		for (short k = 0; k < 2; k++) {
@@ -48,6 +53,7 @@ int main(void) {
 		}
 	}
 
+	printf("\nElements: ");
 	for (short i = rez[0][0] + 1; i < rez[0][1]; i++) {
 		printf("%i ", i);
 	}
