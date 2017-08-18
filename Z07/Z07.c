@@ -2,7 +2,7 @@
 #include <stdbool.h>
 
 int main(void) {
-	short mas[8] = { 0, 6, 8, 3, 2, 7, 4, 9 };
+	short mas[8] = { 9, 8, 0, 3, 2, 1, 5, 7 };
 	short rez[2][2] = { 0 };
 	short size = 10;
 	short ind = 0;
@@ -13,8 +13,9 @@ int main(void) {
 		printf("%i ", mas[i]);
 	}
 
-	for (short i = 0; i < size - 3; i++) {
+	for (short i = 0; i < size - 2; i++) {
 		flag = false;
+		ind = 0;
 		for (short k = 0; k < 2; k++) {
 			rez[k][0] = 0;
 			rez[k][1] = 0;
@@ -39,14 +40,18 @@ int main(void) {
 		}
 
 		if (!flag) {
-			if (mas[size - 3] != size - 1) {
-				rez[1][0] = mas[size - 3];
-				rez[1][1] = 10;
+			if (mas[0] > 0) {
+				rez[ind][0] = -1;
+				rez[ind++][1] = mas[0];
 			}
 
-			if (mas[0] != 0) {
-				rez[0][0] = -1;
-				rez[0][1] = mas[0];
+			if (mas[size - 3] < 9) {
+				rez[ind][0] = mas[size - 3];
+				rez[ind++][1] = 10;
+			}
+
+			if (ind == 0) {
+				ind = 2;
 			}
 
 			break;
@@ -54,12 +59,12 @@ int main(void) {
 	}
 
 	printf("\nElements: ");
-	for (short i = rez[0][0] + 1; i < rez[0][1]; i++) {
-		printf("%i ", i);
+	for (short i = 0; i < ind; i++) {
+		for (short j = rez[i][0] + 1; j < rez[i][1]; j++) {
+			printf("%i ", j);
+		}
 	}
-	for (short i = rez[1][0] + 1; i < rez[1][1]; i++) {
-		printf("%i \n", i);
-	}
+	printf("\n");
 
 	return 0;
 }
