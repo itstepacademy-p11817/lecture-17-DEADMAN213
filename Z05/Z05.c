@@ -5,7 +5,7 @@ void swapElems(int mas[], int size) {
 	for (int i = 0; i < size - 1; i++) {
 		bool flag = true;
 
-		for (int j = 0; j < size - 1; j++) {
+		for (int j = 0; j < size - 1 - i; j++) {
 			if (mas[j] > mas[j + 1]) {
 				int box = mas[j];
 				mas[j] = mas[j + 1];
@@ -21,7 +21,7 @@ void swapElems(int mas[], int size) {
 }
 
 int main(void) {
-	int mas[5] = { 4, 11, 2, 4, 60 };
+	int mas[5] = { 60, 11, 2, 4, 3 };
 	int size = 5;
 
 	printf("In mas: ");
